@@ -1,0 +1,50 @@
+DEPENDÊNCIA : <jackson-dataformat-xml> é um serialiador e um desserializador de formato de envio de dados para o servidor, ex: json,xml...
+
+DEPENDENCIA DEVTOOLS : recarrea a aplicacao enquanto estiver rodando, separando oq foi alterado do q nao foi. <sprin-boot-devtools>
+
+configurando BANCO DE DADOS, persistir os dados em algum mecanismo como por exemplo mysql, postgrees
+
+*//login myspq:
+root
+senha:
+suasenha *//
+
+necessaria em tempo de execução apenas:
+<scope>runtime</scope> não é necessaria qnd o codio esta compilado.
+
+ao colocar essa validação :  createDatabaseIfNotExist=true na url do banco afirmo q ao iniciar a aplicacao se nao tiver um banco com o nome indicado cria um novo
+
+&
+
+serverTimezone=UTC salva hora no formato utc
+
+flyway core: funcionalidades princiais
+flayay mysql: suporte ao mysql
+
+				  JAKARTA EE = JAVA EE
+
+				JAKARTA PERSISTENCE = JPA
+Nós ajuda a mapear um banco de dados relacional como tabelas, em classe Java -> Mapeamento Objeto Relacional
+Dessa forma podemos fazer operações no banco de dados usando a API do jakarta persistence, facilitando a consultas, exclusões etc.
+
+
+				*******ATENÇÃO******
+O SPRING DATA JPA NÃO É UMA IMPLEMENTAÇÃO DO JAVA EE
+
+DENTRO DO SPRING DATA JPA EXISTE UMA DEPENDENCIA TRANSITIVA(DEPENDENCIA DA DEPENDENCIA) CHAMADA HIBERNATE (PRODUTO FINAL)ONDE ESTE SIM É UMA IMPLEMENTAÇÃO DO JAKARTA PERSISTENCE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

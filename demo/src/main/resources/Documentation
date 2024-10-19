@@ -1,0 +1,9 @@
+*********caso eu modifique alguma migration **********
+(mas sabendo que isso não é o certo) e ao
+validar vê q foi alterado vou precisar excluir no workbanch:
+o cheksun é um hash, se ele foi alterado o checksun muda e vamos saber que algo foi
+alterado na migration.
+ 1.workbanck
+ 2.schema do flyway
+ 3. deleta a linha da migration e confirma.
+ 4. subo o sistema novamente
