@@ -34,10 +34,20 @@ O SPRING DATA JPA NÃO É UMA IMPLEMENTAÇÃO DO JAVA EE
 DENTRO DO SPRING DATA JPA EXISTE UMA DEPENDENCIA TRANSITIVA(DEPENDENCIA DA DEPENDENCIA) CHAMADA HIBERNATE (PRODUTO FINAL)ONDE ESTE SIM É UMA IMPLEMENTAÇÃO DO JAKARTA PERSISTENCE
 
 
+*PERSISTINDO DADOS*
+        -Spring Data JPA = ajuda a criar repositorios dentro jo jakarta persistence.
+        -Em projetos grandes NÃO usamos codigos jpql no controlador. Criamos repositorios q usam o jakarta persistence.
+        -Crio um novo pacote onde crio os repositorios.
+1. crio uma interface
+2. extendo o JpaRepository e coloco < classeModel , tipo do identificador>
 
-
-
-
+        -O Spring Data JPA vai fornecer uma implementação dessa interface pra gente automaticamente.
+1. no controller eu injeto a interface
+2. insiro a anotation @Autowired ,indicando q queremos injetar uma instancia q esta sendo gerenciada pelo spring.
+3. crio um construror ,pois caso seja somente uma variavel de instancia provada, eu nao vou ter acesso de fora.
+Para facilitar no lombok uso o @AllArgsContructor, e com isso todas as variaveis de instancia ele cria um construtor.
+        -Com a anotation @RequestMapping("/nomeDaMinhaURI") posso passa o nome do meu end point nao precisando repetir
+        o nome em cada metodo.
 
 
 
