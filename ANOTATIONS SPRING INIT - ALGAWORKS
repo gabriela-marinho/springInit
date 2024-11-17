@@ -58,7 +58,8 @@ Para facilitar no lombok uso o @AllArgsContructor, e com isso todas as variaveis
 Validação de objetos java.
 Hibernete validation é uma implementação de referencia do jakarta bean validation
 
-
+  @Transactional = do spring, esse metodo deve ser executado dentro de uma transação, se algo der errado
+  ao executar esse metodo, todas as execuções q envolvem banco de dados serão descartadas, será dado o rollback.
 
 
 

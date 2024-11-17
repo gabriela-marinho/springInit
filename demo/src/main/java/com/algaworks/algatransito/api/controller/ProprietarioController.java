@@ -2,6 +2,7 @@ package com.algaworks.algatransito.api.controller;
 
 import com.algaworks.algatransito.domain.model.Proprietario;
 import com.algaworks.algatransito.domain.model.repository.PropiettarioRepository;
+import com.algaworks.algatransito.service.RegistroPropietarioService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -22,6 +23,7 @@ import java.util.Optional;
 public class ProprietarioController {
 
     private PropiettarioRepository propiettarioRepository;
+    private RegistroPropietarioService registroPropietarioService;
 
     @GetMapping
     public List<Proprietario> listar() {
@@ -69,7 +71,7 @@ public class ProprietarioController {
         //@RequestBody vai vincular o parametro ao corpo da requisição, ou seja
         //oq eu passar no corpo da requisição vai ficar vinculado ao argumento, ele vai desserializar
         //(vai pegar pegar o jason e transformar em um objeto java do tipo propietario)
-       return propiettarioRepository.save(proprietario);
+       return registroPropietarioService.salvar(proprietario);
        //já faço o return ja salvando
     }
 
@@ -99,7 +101,7 @@ public class ProprietarioController {
             //aqui retono o não encontrado 404
                 return ResponseEntity.notFound().build();
         }
-        propiettarioRepository.deleteById(proprietarioId);
+        registroPropietarioService.deletar(proprietarioId);
         //aqui retorno o 204 no content, foi edcluido e nao há oq retornar
         return ResponseEntity.noContent().build();
     }
