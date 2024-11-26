@@ -31,9 +31,10 @@ Dessa forma podemos fazer operações no banco de dados usando a API do jakarta 
 exclusões etc.
 
 
-				*******ATENÇÃO******
+				*******ATENÇÃO********
+****************************************************
 O SPRING DATA JPA NÃO É UMA IMPLEMENTAÇÃO DO JAVA EE
-
+****************************************************
 DENTRO DO SPRING DATA JPA EXISTE UMA DEPENDENCIA TRANSITIVA(DEPENDENCIA DA DEPENDENCIA) CHAMADA HIBERNATE
 (PRODUTO FINAL)ONDE ESTE SIM É UMA IMPLEMENTAÇÃO DO JAKARTA PERSISTENCE
 
@@ -59,8 +60,10 @@ Validação de objetos java.
 Hibernete validation é uma implementação de referencia do jakarta bean validation
 
   @Transactional = do spring, esse metodo deve ser executado dentro de uma transação, se algo der errado
-  ao executar esse metodo, todas as execuções q envolvem banco de dados serão descartadas, será dado o rollback.
+  ao executar esse metodo, todas as execuções q envolvem banco de dados serão
+  descartadas, será dado o rollback.
 
-
-
+**************************************************************************************************************
+***SE É REGRA DE NÉGOCIO EU ABRO LOGO A CLASSE DE SERVIÇOS, A CLASSE CONTROLLER(RESOURCE) NEM PRECISO MEXER***
+**************************************************************************************************************
 

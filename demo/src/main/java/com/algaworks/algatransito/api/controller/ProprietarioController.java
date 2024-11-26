@@ -76,7 +76,7 @@ public class ProprietarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Proprietario> atualizar(@PathVariable Long id,
+    public ResponseEntity<Proprietario> atualizar(@Valid @PathVariable Long id,
                                                   @RequestBody Proprietario proprietario) {
         //se colocamos um pathVariable na anotation é importante fazer um BIND unindo ela ao
         //parametro do metodo, vincunlando os 2.
