@@ -66,4 +66,3 @@ Hibernete validation é uma implementação de referencia do jakarta bean valida
 **************************************************************************************************************
 ***SE É REGRA DE NÉGOCIO EU ABRO LOGO A CLASSE DE SERVIÇOS, A CLASSE CONTROLLER(RESOURCE) NEM PRECISO MEXER***
 **************************************************************************************************************
-

@@ -1,6 +1,7 @@
 package com.algaworks.algatransito.api.controller;
 
 import com.algaworks.algatransito.domain.model.Proprietario;
+import com.algaworks.algatransito.domain.model.exception.NegocioException;
 import com.algaworks.algatransito.domain.model.repository.PropiettarioRepository;
 import com.algaworks.algatransito.service.RegistroPropietarioService;
 import jakarta.persistence.EntityManager;
@@ -22,7 +23,7 @@ import java.util.Optional;
 @RequestMapping("/proprietarios")
 public class ProprietarioController {
 
-    private PropiettarioRepository propiettarioRepository;
+    private  final PropiettarioRepository propiettarioRepository;
     private RegistroPropietarioService registroPropietarioService;
 
     @GetMapping
@@ -33,8 +34,8 @@ public class ProprietarioController {
         return propiettarioRepository.findAll();
     }
     /*
-            o proprietarioId é o variavel de caminho (PATHVARIABLE)
-            logo devemos anotar na rerquisição, fazendo o bind(o parametro do metodo á variavel da URI)
+            o proprietarioId é a variavel de caminho (PATHVARIABLE)
+            logo devemos anotar na rerquisição, fazendo o bind(do parametro do metodo á variavel da URI)
      */
     @GetMapping("/{proprietarioId}")
     /*
@@ -104,5 +105,15 @@ public class ProprietarioController {
         registroPropietarioService.deletar(proprietarioId);
         //aqui retorno o 204 no content, foi edcluido e nao há oq retornar
         return ResponseEntity.noContent().build();
+    }
+
+    @ExceptionHandler(NegocioException.class)
+    //Poderia retornar no responseEntity um <void> e
+    // então ele só me daria o erro 400, caso queira
+    // retornar um texto coloco <string>
+    public ResponseEntity<String> capturar(NegocioException e) {
+        //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.badRequest().body(e.getMessage());
+
     }
 }

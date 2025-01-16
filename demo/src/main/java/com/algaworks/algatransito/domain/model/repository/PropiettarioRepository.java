@@ -17,5 +17,8 @@ public interface PropiettarioRepository  extends JpaRepository<Proprietario , Lo
      */
     List<Proprietario> findByNomeContaining(String nome);
 
-    Optional<Proprietario> findByEmal(String email);
+    //OPTIONAL : usado pois pode ter ou pode não ter, por isso utilizo na hora de encontrar
+    Optional<Proprietario> findByEmail(String email);
+
+
 }
