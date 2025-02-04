@@ -1,6 +1,7 @@
 package com.algaworks.algatransito.api.controller;
 
 import com.algaworks.algatransito.domain.model.Veiculo;
+import com.algaworks.algatransito.domain.model.exception.NegocioException;
 import com.algaworks.algatransito.domain.model.repository.VeiculoRepository;
 import com.algaworks.algatransito.service.RegistroVeiculoService;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,16 @@ public class VeiculoController {
     @ResponseStatus(HttpStatus.CREATED)
     public Veiculo cadastrar(@RequestBody Veiculo veiculo){
             return  registroVeiculoService.cadastrar(veiculo);
+
+    }
+
+    @ExceptionHandler(NegocioException.class)
+    //Poderia retornar no responseEntity um <void> e
+    // então ele só me daria o erro 400, caso queira
+    // retornar um texto coloco <string>
+    public ResponseEntity<String> capturar(NegocioException e) {
+        //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.badRequest().body(e.getMessage());
 
     }
 }
