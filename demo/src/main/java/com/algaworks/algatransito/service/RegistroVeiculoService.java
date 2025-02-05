@@ -26,13 +26,13 @@ public class RegistroVeiculoService {
             throw  new NegocioException("Veículo cadastrado já possui um id, impossivel cadastrar");
         }
     boolean placaEmUso = veiculoRepository.findByPlaca(novoVeiculo.getPlaca()).filter(veiculo ->
-            veiculo.equals(novoVeiculo)).isPresent();
+            !veiculo.equals(novoVeiculo)).isPresent();
 
     if(placaEmUso) {
         throw new NegocioException("Já existe um veículo cadastrado com esta placa!");
     }
         Proprietario propietario = registroPropietarioService.buscar(novoVeiculo.getProprietario().getId());
-    novoVeiculo.setProprietario(propietario);
+        novoVeiculo.setProprietario(propietario);
         novoVeiculo.setStatus(StatusVeiculo.REGULAR);
         novoVeiculo.setDataCadastro(LocalDateTime.now());
 
