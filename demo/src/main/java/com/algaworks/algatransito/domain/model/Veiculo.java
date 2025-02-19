@@ -1,12 +1,16 @@
 package com.algaworks.algatransito.domain.model;
 
 import com.algaworks.algatransito.domain.model.enumModel.StatusVeiculo;
+import com.algaworks.algatransito.domain.model.validation.ValidationGroups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.groups.ConvertGroup;
+import jakarta.validation.groups.Default;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +28,8 @@ public class Veiculo {
     @EqualsAndHashCode.Include
     private Long id;
     // MUITOS VEICULOS PARA UM PROPRIETARIO
+    @Valid
+    @ConvertGroup(from = Default.class, to = ValidationGroups.ProprietarioId.class)
     @NotNull
     @ManyToOne
     @JoinColumn

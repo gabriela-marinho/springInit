@@ -1,5 +1,6 @@
 package com.algaworks.algatransito.domain.model;
 
+import com.algaworks.algatransito.domain.model.validation.ValidationGroups;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -15,6 +16,8 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Proprietario {
 
+
+    @NotNull(groups = ValidationGroups.ProprietarioId.class)
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

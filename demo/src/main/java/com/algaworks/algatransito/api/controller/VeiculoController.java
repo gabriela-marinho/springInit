@@ -49,13 +49,6 @@ public class VeiculoController {
 
     }
 
-    @ExceptionHandler(NegocioException.class)
-    //Poderia retornar no responseEntity um <void> e
-    // então ele só me daria o erro 400, caso queira
-    // retornar um texto coloco <string>
-    public ResponseEntity<String> capturar(NegocioException e) {
-        //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        return ResponseEntity.badRequest().body(e.getMessage());
+    //exceção foi para classe ExceptionHandler
 
-    }
 }
